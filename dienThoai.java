@@ -1,12 +1,12 @@
-package QuanLiDanhSachSanPham;
 
-public class dienThoai {
+public class DienThoai {
     private int id;
     private String name;
     private String nhaSanXuat;
     private String dongSanPham;
     private long giaSanPham;
-    public dienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) {
+
+    public DienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) {
         this.id = id;
         this.name = name;
         this.nhaSanXuat = nhaSanXuat;
@@ -43,10 +43,10 @@ public class dienThoai {
     public void setGiaSanPham(long giaSanPham) {
         this.giaSanPham = giaSanPham;
     }
+
     @Override
     public String toString() {
-        return "dienThoai [id=" + id + ", name=" + name + ", nhaSanXuat=" + nhaSanXuat + ", dongSanPham=" + dongSanPham
-                + ", giaSanPham=" + giaSanPham + "]";
+        return "[ id = " + id + " | name = " + name + " | nhaSanXuat = " + nhaSanXuat + " | dongSanPham = " + dongSanPham + " | giaSanPham = " + giaSanPham + " ]";
     }
     @Override
     public int hashCode() {
@@ -67,7 +67,7 @@ public class dienThoai {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        dienThoai other = (dienThoai) obj;
+            DienThoai other = (DienThoai) obj;
         if (id != other.id)
             return false;
         if (name == null) {
