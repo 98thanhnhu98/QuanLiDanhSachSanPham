@@ -1,0 +1,4 @@
+[ id = 1 | name = Android | nhaSanXuat = Android | dongSanPham = Android | giaSanPham = 200000 ]
+[ id = 2 | name = Iphone | nhaSanXuat = Iphone | dongSanPham = Iphone | giaSanPham = 123123 ]
+[ id = 22 | name = Iphone | nhaSanXuat = Iphone | dongSanPham = Iphone | giaSanPham = 123123 ]
+[ id = 4 | name = GalaxyNote10 | nhaSanXuat = Chines | dongSanPham = Android | giaSanPham = 11000 ]
