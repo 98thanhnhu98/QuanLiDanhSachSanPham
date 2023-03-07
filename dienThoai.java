@@ -1,17 +1,21 @@
-package QuanLiDanhSachSanPham;
 
-public class dienThoai {
+public class DienThoai {
     private int id;
     private String name;
     private String nhaSanXuat;
     private String dongSanPham;
     private long giaSanPham;
-    public dienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) {
-        this.id = id;
-        this.name = name;
-        this.nhaSanXuat = nhaSanXuat;
-        this.dongSanPham = dongSanPham;
-        this.giaSanPham = giaSanPham;
+
+    public DienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) throws Exception {
+        if(name.length() > 8 && nhaSanXuat.length() > 5 && dongSanPham.length() > 5 && giaSanPham > 10000) {
+            this.id = id;
+            this.name = name;
+            this.nhaSanXuat = nhaSanXuat;
+            this.dongSanPham = dongSanPham;
+            this.giaSanPham = giaSanPham;
+        }else {
+            throw new Exception("validation is working!!!");
+        }
     }
     public int getId() {
         return id;
@@ -23,30 +27,46 @@ public class dienThoai {
         return name;
     }
     public void setName(String name) {
-        this.name = name;
+        if(name.length() > 8){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.name = name;
+        }
     }
     public String getNhaSanXuat() {
         return nhaSanXuat;
     }
     public void setNhaSanXuat(String nhaSanXuat) {
-        this.nhaSanXuat = nhaSanXuat;
+        if(name.length() > 5){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.nhaSanXuat = nhaSanXuat;
+        }
     }
     public String getDongSanPham() {
         return dongSanPham;
     }
     public void setDongSanPham(String dongSanPham) {
-        this.dongSanPham = dongSanPham;
+        if(name.length() > 5){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.dongSanPham = dongSanPham;
+        }
     }
     public long getGiaSanPham() {
         return giaSanPham;
     }
     public void setGiaSanPham(long giaSanPham) {
-        this.giaSanPham = giaSanPham;
+        if(giaSanPham < 10000){
+            System.out.println("price must not be less than 10000");
+        }else {
+            this.giaSanPham = giaSanPham;
+        }
     }
+
     @Override
     public String toString() {
-        return "dienThoai [id=" + id + ", name=" + name + ", nhaSanXuat=" + nhaSanXuat + ", dongSanPham=" + dongSanPham
-                + ", giaSanPham=" + giaSanPham + "]";
+        return "[ id = " + id + " | name = " + name + " | nhaSanXuat = " + nhaSanXuat + " | dongSanPham = " + dongSanPham + " | giaSanPham = " + giaSanPham + " ]";
     }
     @Override
     public int hashCode() {
@@ -67,7 +87,7 @@ public class dienThoai {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        dienThoai other = (dienThoai) obj;
+            DienThoai other = (DienThoai) obj;
         if (id != other.id)
             return false;
         if (name == null) {
