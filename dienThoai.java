@@ -6,12 +6,16 @@ public class DienThoai {
     private String dongSanPham;
     private long giaSanPham;
 
-    public DienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) {
-        this.id = id;
-        this.name = name;
-        this.nhaSanXuat = nhaSanXuat;
-        this.dongSanPham = dongSanPham;
-        this.giaSanPham = giaSanPham;
+    public DienThoai(int id, String name, String nhaSanXuat, String dongSanPham, long giaSanPham) throws Exception {
+        if(name.length() > 8 && nhaSanXuat.length() > 5 && dongSanPham.length() > 5 && giaSanPham > 10000) {
+            this.id = id;
+            this.name = name;
+            this.nhaSanXuat = nhaSanXuat;
+            this.dongSanPham = dongSanPham;
+            this.giaSanPham = giaSanPham;
+        }else {
+            throw new Exception("validation is working!!!");
+        }
     }
     public int getId() {
         return id;
@@ -23,25 +27,41 @@ public class DienThoai {
         return name;
     }
     public void setName(String name) {
-        this.name = name;
+        if(name.length() > 8){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.name = name;
+        }
     }
     public String getNhaSanXuat() {
         return nhaSanXuat;
     }
     public void setNhaSanXuat(String nhaSanXuat) {
-        this.nhaSanXuat = nhaSanXuat;
+        if(name.length() > 5){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.nhaSanXuat = nhaSanXuat;
+        }
     }
     public String getDongSanPham() {
         return dongSanPham;
     }
     public void setDongSanPham(String dongSanPham) {
-        this.dongSanPham = dongSanPham;
+        if(name.length() > 5){
+            System.out.println("name length must be greater than 8");
+        }else {
+            this.dongSanPham = dongSanPham;
+        }
     }
     public long getGiaSanPham() {
         return giaSanPham;
     }
     public void setGiaSanPham(long giaSanPham) {
-        this.giaSanPham = giaSanPham;
+        if(giaSanPham < 10000){
+            System.out.println("price must not be less than 10000");
+        }else {
+            this.giaSanPham = giaSanPham;
+        }
     }
 
     @Override

@@ -176,15 +176,21 @@ public class index {
     }
 
     public static int getMax() {
-        try (BufferedReader br = new BufferedReader(new FileReader(FILENAME))) {
-            String strCurrentLine;
-            int lineCount = 0;
-            while ((strCurrentLine = br.readLine()) != null) {
-                lineCount++;
+        try {
+            LineIterator iterator = FileUtils.lineIterator(new File(FILENAME), "UTF-8");
+            int count = 0;
+            while (iterator.hasNext()) {
+                String line = iterator.nextLine();
+                String[] parts = line.substring(2, line.length() - 2).split(" \\| ");
+                int id = Integer.parseInt(parts[0].split(" = ")[1]);
+                if (count < id) {
+                    count = id;
+                }
             }
-            br.close();
-            return lineCount;
-        } catch (IOException e) {
+            return count;
+        }catch(IOException e){
+            e.printStackTrace();
+        }catch (Exception e){
             e.printStackTrace();
         }
         return 0;
@@ -268,6 +274,7 @@ public class index {
     }
 
     public static void main(String[] args) {
+        System.out.println("id max la : " + getMax());
         boolean flag = true;
         int a = 0;
         while(flag){
